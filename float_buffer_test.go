@@ -19,7 +19,7 @@ func TestFloat64Buffer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			fb := FloatBuffer{Format: FormatMono22500, Data: tt.f64}
+			fb := FloatBuffer{Format: FormatMono22050, Data: tt.f64}
 			fb32 := fb.AsFloat32Buffer()
 			if !reflect.DeepEqual(fb32.Data, tt.f32) {
 				t.Errorf("Expected %+v got %+v", tt.f32, fb32.Data)
@@ -45,7 +45,7 @@ func TestClone(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			fb := FloatBuffer{Format: FormatMono22500, Data: tt.f64}
+			fb := FloatBuffer{Format: FormatMono22050, Data: tt.f64}
 			b := fb.Clone()
 			fb2 := b.AsFloatBuffer()
 			if !reflect.DeepEqual(fb2.Data, tt.f64) {
@@ -67,12 +67,12 @@ func TestClone(t *testing.T) {
 
 func TestNumFrames(t *testing.T) {
 	expect := 3
-	fb64 := FloatBuffer{Format: FormatMono22500, Data: []float64{1, 2, 3}}
+	fb64 := FloatBuffer{Format: FormatMono22050, Data: []float64{1, 2, 3}}
 	numFrames := fb64.NumFrames()
 	if numFrames != expect {
 		t.Errorf("Expected %d got %d", expect, numFrames)
 	}
-	fb32 := Float32Buffer{Format: FormatMono22500, Data: []float32{1, 2, 3}}
+	fb32 := Float32Buffer{Format: FormatMono22050, Data: []float32{1, 2, 3}}
 	numFrames = fb32.NumFrames()
 	if numFrames != expect {
 		t.Errorf("Expected %d got %d", expect, numFrames)
@@ -92,7 +92,7 @@ func TestFloat32Buffer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			fb := Float32Buffer{Format: FormatMono22500, Data: tt.f32}
+			fb := Float32Buffer{Format: FormatMono22050, Data: tt.f32}
 			fb64 := fb.AsFloatBuffer()
 			if !reflect.DeepEqual(fb64.Data, tt.f64) {
 				t.Errorf("Expected %+v got %+v", tt.f64, fb64.Data)
