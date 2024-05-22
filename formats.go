@@ -8,6 +8,11 @@ var (
 		NumChannels: 1,
 		SampleRate:  22050,
 	}
+	// FormatMono22500 is mono 22.5kHz format.
+	FormatMono22500 = &Format{
+		NumChannels: 1,
+		SampleRate:  22500,
+	}
 	// FormatMono44100 is mono 8bit 44.1kHz format.
 	FormatMono44100 = &Format{
 		NumChannels: 1,
@@ -30,6 +35,11 @@ var (
 	FormatStereo22050 = &Format{
 		NumChannels: 2,
 		SampleRate:  22050,
+	}
+	// FormatStereo22500 is stereo 22.5kHz format.
+	FormatStereo22500 = &Format{
+		NumChannels: 2,
+		SampleRate:  22500,
 	}
 	// FormatStereo44100 is stereo 8bit 44.1kHz format.
 	FormatStereo44100 = &Format{
